@@ -1,6 +1,7 @@
 #!/usr/bin/node
-// function that returns the number of occurrences in a list
+
+// Returns the number of occurrences of an element in a list
 
 exports.nbOccurences = function (list, searchElement) {
-  return list.filter((value) => (value === searchElement)).length;
+  return list.filter(x => x === searchElement).length;
 };

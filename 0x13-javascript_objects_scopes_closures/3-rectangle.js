@@ -1,24 +1,26 @@
 #!/usr/bin/node
-// Script class Rectangle that defines a rectangle
 
-const Rectangle = class Rectangle {
-  constructor (w, h) {
-    if (w > 0 && h > 0) {
-      this.width = w;
-      this.height = h;
+// Prints a Rectangle with the parameters passed
+
+module.exports = class Rectangle {
+  constructor (width, height) {
+    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
     }
   }
 
   print () {
-    let prints = '';
-    for (let cont1 = 0; cont1 < this.height; cont1++) {
-      for (let cont = 0; cont < this.width; cont++) {
-        prints = prints + 'X';
+    for (let i = 0; i < this.height; ++i) {
+      let j = 0;
+
+      for (; j < this.width; ++j) {
+        process.stdout.write('X');
       }
-      console.log(prints);
-      prints = '';
+
+      if (j === this.width) {
+        console.log('');
+      }
     }
   }
 };
-
-module.exports = Rectangle;
